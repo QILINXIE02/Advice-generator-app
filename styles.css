@@ -24,6 +24,11 @@ h1 {
   margin-bottom: 20px;
 }
 
+h2 {
+  font-size: 20px;
+  margin-top: 30px;
+}
+
 .content {
   margin-top: 20px;
 }
@@ -51,4 +56,30 @@ h1 {
 .btn:focus {
   outline: none;
   box-shadow: 0 0 3px 3px rgba(0, 123, 255, 0.5);
+}
+
+.history, .favorites {
+  text-align: left;
+  margin-top: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.heart {
+  color: red;
+  cursor: pointer;
+}
+
+.heart.favorited {
+  color: darkred;
 }
