@@ -15,18 +15,21 @@ body {
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  max-width: 400px;
+  max-width: 600px;
   width: 100%;
+  margin: 20px;
 }
 
 h1 {
-  font-size: 24px;
+  font-size: 32px;
   margin-bottom: 20px;
+  color: #007BFF;
 }
 
 h2 {
-  font-size: 20px;
+  font-size: 24px;
   margin-top: 30px;
+  color: #0056b3;
 }
 
 .content {
@@ -34,7 +37,7 @@ h2 {
 }
 
 #output {
-  font-size: 18px;
+  font-size: 20px;
   margin-bottom: 20px;
 }
 
@@ -42,11 +45,12 @@ h2 {
   background-color: #007BFF;
   color: white;
   border: none;
-  padding: 10px 20px;
-  margin: 5px;
+  padding: 12px 24px;
+  margin: 10px;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
 }
 
 .btn:hover {
@@ -60,7 +64,7 @@ h2 {
 
 .history, .favorites {
   text-align: left;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 ul {
@@ -69,17 +73,28 @@ ul {
 }
 
 li {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .heart {
-  color: red;
+  color: #ccc;
   cursor: pointer;
+  font-size: 20px;
+  transition: color 0.3s ease;
+  margin-left: 10px;
+}
+
+.heart:hover {
+  color: red;
 }
 
 .heart.favorited {
-  color: darkred;
+  color: red;
 }

@@ -1,5 +1,6 @@
 document.getElementById('getAdviceBtn').addEventListener('click', fetchAdvice);
 document.getElementById('getJokeBtn').addEventListener('click', fetchJoke);
+document.getElementById('clearFavoritesBtn').addEventListener('click', confirmClearFavorites);
 
 document.addEventListener('DOMContentLoaded', () => {
     loadFavorites();
@@ -59,7 +60,7 @@ function toggleFavorite(element, text, type) {
 function addToFavorites(text, type) {
     const favoritesList = document.getElementById('favoritesList');
     const li = document.createElement('li');
-    li.innerText = `${type}: ${text}`;
+    li.innerHTML = `${type}: ${text} <span class="heart" onclick="toggleFavorite(this, '${text.replace(/'/g, "\\'")}', '${type}')">&#10084;</span>`;
     favoritesList.appendChild(li);
     saveToLocalStorage('favorites', { text, type });
 }
@@ -89,7 +90,7 @@ function loadFavorites() {
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     favorites.forEach(item => {
         const li = document.createElement('li');
-        li.innerText = `${item.type}: ${item.text}`;
+        li.innerHTML = `${item.type}: ${item.text} <span class="heart" onclick="toggleFavorite(this, '${item.text.replace(/'/g, "\\'")}', '${item.type}')">&#10084;</span>`;
         favoritesList.appendChild(li);
     });
 }
@@ -102,4 +103,11 @@ function loadHistory() {
         li.innerHTML = `${item.type}: ${item.text} <span class="heart" onclick="toggleFavorite(this, '${item.text.replace(/'/g, "\\'")}', '${item.type}')">&#10084;</span>`;
         historyList.appendChild(li);
     });
+}
+
+function confirmClearFavorites() {
+    if (confirm('Are you sure you want to clear all favorites?')) {
+        localStorage.removeItem('favorites');
+        loadFavorites(); // Clear favorites list
+    }
 }
