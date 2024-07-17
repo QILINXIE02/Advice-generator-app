@@ -25,7 +25,7 @@ This web application generates random advice and jokes, allowing users to intera
 - JavaScript (ES6+)
 
 ## How to Use
-3. Click buttons to get random advice or jokes.
-4. Hover over elements for visual feedback.
-5. Use the search bar to filter content.
-6. Sort content by date, category, or popularity using the provided options.
+1. Click buttons to get random advice or jokes.
+2. Hover over elements for visual feedback.
+3. Use the search bar to filter content.
+4. Sort content by date, category, or popularity using the provided options.
