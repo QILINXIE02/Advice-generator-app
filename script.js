@@ -39,12 +39,12 @@ function addToHistory(text, type) {
     const historyList = document.getElementById('historyList');
     const li = document.createElement('li');
     li.innerHTML = `${type}: ${text} <span class="heart" onclick="toggleFavorite(this, '${text.replace(/'/g, "\\'")}', '${type}')">&#10084;</span>`;
-    historyList.appendChild(li);
+    historyList.insertBefore(li, historyList.firstChild); // Prepend new item
     saveToLocalStorage('history', { text, type });
 
     // Limit the history display to the last 5 items
     while (historyList.children.length > 5) {
-        historyList.removeChild(historyList.firstChild);
+        historyList.removeChild(historyList.lastChild);
     }
 }
 
@@ -53,23 +53,25 @@ function toggleFavorite(element, text, type) {
     if (isFavorited) {
         addToFavorites(text, type);
     } else {
-        removeFromFavorites(text);
+        removeFromFavorites(text, element);
     }
 }
 
 function addToFavorites(text, type) {
     const favoritesList = document.getElementById('favoritesList');
     const li = document.createElement('li');
-    li.innerHTML = `${type}: ${text} <span class="heart" onclick="toggleFavorite(this, '${text.replace(/'/g, "\\'")}', '${type}')">&#10084;</span>`;
+    li.innerHTML = `${type}: ${text} <span class="heart favorited" onclick="toggleFavorite(this, '${text.replace(/'/g, "\\'")}', '${type}')">&#10084;</span>`;
     favoritesList.appendChild(li);
     saveToLocalStorage('favorites', { text, type });
 }
 
-function removeFromFavorites(text) {
+function removeFromFavorites(text, element) {
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     favorites = favorites.filter(item => item.text !== text);
     localStorage.setItem('favorites', JSON.stringify(favorites));
-    loadFavorites(); // Reload favorites list
+    if (element.parentElement.parentElement.id === 'favoritesList') {
+        element.parentElement.remove(); // Only remove if it's from favorites
+    }
 }
 
 function saveToLocalStorage(key, data) {
@@ -90,7 +92,7 @@ function loadFavorites() {
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     favorites.forEach(item => {
         const li = document.createElement('li');
-        li.innerHTML = `${item.type}: ${item.text} <span class="heart" onclick="toggleFavorite(this, '${item.text.replace(/'/g, "\\'")}', '${item.type}')">&#10084;</span>`;
+        li.innerHTML = `${item.type}: ${item.text} <span class="heart favorited" onclick="toggleFavorite(this, '${item.text.replace(/'/g, "\\'")}', '${item.type}')">&#10084;</span>`;
         favoritesList.appendChild(li);
     });
 }
