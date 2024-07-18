@@ -5,16 +5,16 @@ body {
   height: 100vh;
   margin: 0;
   font-family: 'Arial', sans-serif;
-  background: #f0f0f0;
-  color: #333;
+  background: linear-gradient(135deg, #333, #444);
+  color: #f0f0f0;
 }
 
 .container {
   text-align: center;
-  background: #fff;
+  background: #555;
   padding: 30px;
   border-radius: 15px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
   max-width: 600px;
   width: 100%;
   margin: 20px;
@@ -45,7 +45,7 @@ h2 {
 #output {
   font-size: 22px;
   margin-bottom: 20px;
-  color: #444;
+  color: #bbb;
   font-style: italic;
 }
 
@@ -85,7 +85,7 @@ ul {
 li {
   margin-bottom: 12px;
   padding: 10px;
-  background-color: #f0f0f0;
+  background-color: #666;
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
@@ -95,7 +95,7 @@ li {
 }
 
 li:hover {
-  background-color: #e0e0e0;
+  background-color: #777;
 }
 
 .heart {
