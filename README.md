@@ -1,31 +1,38 @@
-# Advice and Jokes Generator App
+# Advice & Jokes Web App
 
-This web application generates random advice and jokes, allowing users to interact with the content and save their favorites.
+## Overview
+This web app fetches random advice and jokes from public APIs and allows users to save their favorites, view their history, and switch between different themes.
 
 ## Features
+- **Fetch Random Advice**: Get random pieces of advice from the Advice Slip API.
+- **Fetch Random Jokes**: Get random jokes from the Official Joke API.
+- **Favorites**: Save your favorite advice and jokes.
+- **History**: View the history of fetched advice and jokes, with the newest items at the top.
+- **Theme Toggle**: Switch between light, dark, and color themes.
+- **Clear Favorites**: Option to clear all saved favorites.
+- **Delete Favorites**: Delete individual favorites from the favorites section.
+- **Local Storage**: Data is saved in the browser's local storage.
 
-### Interactive UI Enhancements
-- **Animations**: Subtle animations added to buttons and elements for a polished look.
-- **Hover Effects**: Visual feedback implemented on buttons and links.
+## Usage
 
-### Visual Design Improvements
-- **Custom Illustrations**: Custom icons and illustrations related to advice and jokes.
-- **Color Scheme**: Cohesive color scheme chosen to reflect the app's playful and inviting nature.
+### Fetching Advice
+Click the "Get Advice" button to fetch a random piece of advice. The advice will be displayed in the output area and added to the history.
 
-### Typography and Layout
-- **Typography**: Combination of fonts used to differentiate between headings and body text.
-- **Responsive Layout**: Grid layouts and flexbox used for visually appealing and responsive design across different screen sizes.
+### Fetching Jokes
+Click the "Get Joke" button to fetch a random joke. The joke will be displayed in the output area and added to the history.
 
-### Enhanced Functionality
-- **Search Feature**: Implemented search bar to filter advice and jokes based on keywords.
-- **Sorting Options**: Added options to sort advice and jokes by date, category, or popularity.
+### Adding to Favorites
+Click the heart icon next to any advice or joke in the history section to add it to your favorites.
+
+### Deleting from Favorites
+Click the heart icon next to any advice or joke in the favorites section to remove it from your favorites.
+
+### Clearing Favorites
+Click the "Clear Favorites" button to remove all items from your favorites list.
+
+### Theme Toggle
+Click the "Toggle Theme" button to switch between light, dark, and color themes.
 
 ## Technologies Used
 - HTML5, CSS3
 - JavaScript (ES6+)
-
-## How to Use
-1. Click buttons to get random advice or jokes.
-2. Hover over elements for visual feedback.
-3. Use the search bar to filter content.
-4. Sort content by date, category, or popularity using the provided options.
