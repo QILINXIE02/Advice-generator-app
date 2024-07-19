@@ -1,5 +1,6 @@
 document.getElementById('getAdviceBtn').addEventListener('click', fetchAdvice);
 document.getElementById('getJokeBtn').addEventListener('click', fetchJoke);
+document.getElementById('getTipBtn').addEventListener('click', fetchDailyTip); // New button for daily tips
 document.getElementById('clearFavoritesBtn').addEventListener('click', confirmClearFavorites);
 document.getElementById('themeSelect').addEventListener('change', (event) => {
     applyTheme(event.target.value);
@@ -37,6 +38,24 @@ function fetchJoke() {
             console.error('Error fetching joke:', error);
             document.getElementById('output').innerText = 'Failed to get a joke. Please try again later.';
         });
+}
+
+function fetchDailyTip() {
+    const tips = [
+        "Drink more water!",
+        "Take breaks while working.",
+        "Exercise regularly.",
+        "Get enough sleep.",
+        "Stay positive and motivated.",
+        "Organize your workspace.",
+        "Learn something new every day.",
+        "Practice gratitude.",
+        "Eat a balanced diet.",
+        "Stay connected with loved ones."
+    ];
+    const tip = tips[Math.floor(Math.random() * tips.length)];
+    document.getElementById('output').innerText = tip;
+    addToHistory(tip, 'tip');
 }
 
 function addToHistory(text, type) {
